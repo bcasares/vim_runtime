@@ -21,7 +21,7 @@ The awesome version includes a lot of great plugins, configurations and color sc
 
 Intall vudle: 
 
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ## Fonts
 
