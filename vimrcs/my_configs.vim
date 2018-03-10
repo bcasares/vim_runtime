@@ -14,7 +14,7 @@ Plugin 'Valloric/YouCompleteMe'
 "Vim Awesome
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 " Plugin 'tpope/vim-surround'
 " Plugin 'kien/ctrlp.vim'
 " Plugin 'altercation/vim-colors-solarized'
