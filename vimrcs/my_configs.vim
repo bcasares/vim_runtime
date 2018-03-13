@@ -84,7 +84,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 "Insert number of lines:
-set number 
+" set number 
 
 " C code indentation: 
 set cindent 
