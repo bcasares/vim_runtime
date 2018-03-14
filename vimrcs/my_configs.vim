@@ -36,6 +36,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'https://github.com/adelarsq/vim-matchit'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'dracula/vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'sjl/badwolf'
+
 " " NEW PLUGINS
 " Plugin 'MarcWeber/vim-addon-mw-utils'
 " Plugin 'tomtom/tlib_vim'
@@ -170,5 +173,6 @@ let g:multi_cursor_quit_key='<Esc>'
 " Set ruler
 :set colorcolumn=80
 
-
+" set colorscheme
+colorscheme badwolf
 
