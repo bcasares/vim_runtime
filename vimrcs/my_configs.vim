@@ -1,7 +1,7 @@
-" My PlugIns 
+" My PlugIns
 "
-set nocompatible            
-filetype off               
+set nocompatible
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -38,6 +38,9 @@ Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'dracula/vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'sjl/badwolf'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'kana/vim-operator-user'
+" Plugin 'rhysd/vim-clang-format'
 
 " " NEW PLUGINS
 " Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -66,7 +69,7 @@ Plugin 'sjl/badwolf'
 
 "Included Color Scheme
 " Plugin 'vim-scripts/peaksea'
-" Plugin 'altercation/vim-colors-solarized' "Included already. 
+" Plugin 'altercation/vim-colors-solarized' "Included already.
 " Plugin 'wesgibbs/vim-irblack'
 " Plugin 'vim-scripts/mayansmoke'
 " Plugin 'therubymug/vim-pyte'
@@ -87,16 +90,16 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 "Insert number of lines:
-" set number 
+" set number
 
-" C code indentation: 
-set cindent 
+" C code indentation:
+set cindent
 set autoindent
 set shiftwidth=2
 set expandtab
 set softtabstop=2
 
-"Remap C-a to select all: 
+"Remap C-a to select all:
 map <C-a> <esc>ggVG<CR>
 
 
@@ -117,7 +120,7 @@ set clipboard=unnamedplus
 
 
 
-"Tabularize command: 
+"Tabularize command:
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
@@ -160,7 +163,7 @@ set mouse=a
 set updatetime=250
 map <leader>G :GitGutterToggle<cr>
 
-" Multicursor in vim 
+" Multicursor in vim
 " Deactivate default
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
@@ -175,4 +178,12 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " set colorscheme
 colorscheme badwolf
+
+" Autoformat
+" Set to F3
+noremap <F3> :Autoformat<CR>
+" Autoformat on save
+au BufWrite * :Autoformat
+
+
 
