@@ -41,7 +41,7 @@ Plugin 'sjl/badwolf'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'kana/vim-operator-user'
 " Plugin 'rhysd/vim-clang-format'
-
+" Plugin 'tell-k/vim-autopep8'
 " " NEW PLUGINS
 " Plugin 'MarcWeber/vim-addon-mw-utils'
 " Plugin 'tomtom/tlib_vim'
@@ -184,6 +184,7 @@ colorscheme badwolf
 noremap <F3> :Autoformat<CR>
 " Autoformat on save
 au BufWrite * :Autoformat
-
+" let g:autopep8_max_line_length=79
+set textwidth=100
 
 
