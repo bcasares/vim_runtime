@@ -186,6 +186,6 @@ noremap <F3> :Autoformat<CR>
 " Autoformat on save
 " au BufWrite * :Autoformat
 " let g:autopep8_max_line_length=79
-set textwidth=120
+" set textwidth=120
 
 
