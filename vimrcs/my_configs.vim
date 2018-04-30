@@ -41,6 +41,10 @@ Plugin 'sjl/badwolf'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'kana/vim-operator-user'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+" Plugin 'xuhdev/vim-latex-live-preview'
+" Plugin 'lervag/vimtex'
+
+
 " Plugin 'rhysd/vim-clang-format'
 " Plugin 'tell-k/vim-autopep8'
 " " NEW PLUGINS
@@ -63,7 +67,7 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 "Plugin 'kchmck/vim-coffee-script'
 " Plugin 'groenewege/vim-less'
 " Plugin 'sophacles/vim-bundle-mako'
-" Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
 " Plugin 'vim-scripts/nginx.vim'
 " Plugin 'fatih/vim-go'
 
@@ -104,7 +108,7 @@ set softtabstop=2
 map <C-a> <esc>ggVG<CR>
 
 
-"Inser snippets"
+"Insert snippets"
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -164,7 +168,7 @@ set mouse=a
 set updatetime=250
 map <leader>G :GitGutterToggle<cr>
 
-" Multicursor in vim
+" Multi cursor in vim
 " Deactivate default
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
@@ -188,4 +192,19 @@ noremap <F3> :Autoformat<CR>
 " let g:autopep8_max_line_length=79
 " set textwidth=120
 
+" Spell
+setlocal spell spelllang=en_us
 
+" Latex
+" let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat = 'pdf'
+
+set iskeyword+=:
+
+function CompileXeTex()
+    let oldCompileRule=g:Tex_CompileRule_pdf
+    let g:Tex_CompileRule_pdf = 'xelatex -aux-directory=F:/Vim/my_latex_doc/temp --synctex=-1 -src-specials -interaction=nonstopmode $*'
+    call Tex_RunLaTeX()
+    let g:Tex_CompileRule_pdf=oldCompileRule
+endfunction
+map <Leader>lx :<C-U>call CompileXeTex()<CR>
