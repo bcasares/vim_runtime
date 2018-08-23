@@ -210,4 +210,12 @@ endfunction
 map <Leader>lx :<C-U>call CompileXeTex()<CR>
 
 set term=screen-256color
-set t_ut=
+
+
+
+
+
+
+
+
+
