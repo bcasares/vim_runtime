@@ -9,7 +9,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 "Vim Awesome
 " Plugin 'tpope/vim-fugitive'
@@ -78,6 +78,9 @@ Plugin 'tpope/vim-markdown'
 " Plugin 'wesgibbs/vim-irblack'
 " Plugin 'vim-scripts/mayansmoke'
 " Plugin 'therubymug/vim-pyte'
+"
+Plugin 'Yggdroot/indentLine'
+Plugin 'vim-python/python-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -122,8 +125,11 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Copy and paste to clipboard
 set clipboard=unnamedplus
-
-
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
+" set clipboard=unnamed
 
 "Tabularize command:
 if exists(":Tabularize")
@@ -201,21 +207,29 @@ let g:Tex_DefaultTargetFormat = 'pdf'
 
 set iskeyword+=:
 
-function CompileXeTex()
-    let oldCompileRule=g:Tex_CompileRule_pdf
-    let g:Tex_CompileRule_pdf = 'xelatex -aux-directory=F:/Vim/my_latex_doc/temp --synctex=-1 -src-specials -interaction=nonstopmode $*'
-    call Tex_RunLaTeX()
-    let g:Tex_CompileRule_pdf=oldCompileRule
+" function CompileXeTex()
+"     let oldCompileRule=g:Tex_CompileRule_pdf
+"     let g:Tex_CompileRule_pdf = 'xelatex -aux-directory=F:/Vim/my_latex_doc/temp --synctex=-1 -src-specials -interaction=nonstopmode $*'
+"     call Tex_RunLaTeX()
+"     let g:Tex_CompileRule_pdf=oldCompileRule
+" endfunction
+" map <Leader>lx :<C-U>call CompileXeTex()<CR>
+
+" Highlight when double click
+:map <2-LeftMouse> *
+:imap <2-LeftMouse> <c-o>*
+
+" Source vim automatically every time I change the vimrc file. 
+au! BufWritePost .vimrc source %
+
+" Python syntax highlighting
+function! EnhancePySyntax()
+  " syntax match pythonfunction /\v[[:alpha:]_.]+\ze(\s?\()/
+  syntax match pythonfunction /\v([^[:cntrl:][:space:][:punct:][:digit:]]|_)([^[:cntrl:][:punct:][:space:]]|_)*\ze(\s?\()/
+    hi def link pythonfunction function
 endfunction
-map <Leader>lx :<C-U>call CompileXeTex()<CR>
-
-set term=screen-256color
-
-
-
-
-
-
-
-
-
+" let g:python_highlight_all = 1
+"
+" Run python
+autocmd! FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+autocmd Filetype python call EnhancePySyntax()
