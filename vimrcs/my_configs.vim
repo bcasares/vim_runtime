@@ -100,12 +100,17 @@ filetype plugin indent on    " required
 "Insert number of lines:
 " set number
 
+" Avoid conflict tabs between sublime and vim
+set tabstop=4
+
+
 " C code indentation:
 set cindent
 set autoindent
 set shiftwidth=2
 set expandtab
 set softtabstop=2
+
 
 "Remap C-a to select all:
 map <C-a> <esc>ggVG<CR>
@@ -124,7 +129,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 
 " Copy and paste to clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+set clipboard=unnamed
 noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
@@ -168,6 +174,7 @@ vnoremap <Right> <Nop>
 
 " Set mouse
 set mouse=a
+
 
 
 " Track changes in Git
@@ -233,3 +240,8 @@ endfunction
 " Run python
 autocmd! FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 autocmd Filetype python call EnhancePySyntax()
+
+" Remap contrp
+let g:ctrlp_map = '<c-p>'
+
+
